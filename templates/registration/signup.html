@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up - Wanderlust Travels{% endblock %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 50px auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    
+    <h2 style="text-align: center; color: #2c3e50; margin-top: 0;">Create an Account</h2>
+    <p style="text-align: center; color: #7f8c8d; margin-bottom: 20px;">Join us to start booking your adventures.</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; display: block; margin-bottom: 5px; color: #34495e;">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <small style="color: #95a5a6; display: block; margin-top: 2px;">{{ field.help_text }}</small>
+                {% endif %}
+                {% if field.errors %}
+                    <div style="color: #e74c3c; font-size: 0.85em; margin-top: 5px;">
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn" style="width: 100%; margin-top: 10px; font-size: 1.1rem;">Create Account</button>
+    </form>
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <p style="font-size: 0.9rem;">Already have an account? <a href="{% url 'login' %}" style="color: #e67e22; text-decoration: none; font-weight: bold;">Log In</a></p>
+    </div>
+
+</div>
+{% endblock %}

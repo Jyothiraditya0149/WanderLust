@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to Wanderlust Travels{% endblock %}
+{% block content %}
+<div style="text-align: center; padding: 50px 20px;">
+    <h1 style="font-size: 3rem; color: #2c3e50;">Your Adventure Begins Here</h1>
+    <p style="font-size: 1.2rem; color: #7f8c8d; max-width: 600px; margin: 0 auto;">
+        Discover the world's most breathtaking destinations with our expertly curated travel packages.
+    </p>
+    
+    <br><br>
+
+    <a href="{% url 'tour_list' %}" class="btn" style="padding: 15px 30px; font-size: 1.2rem; background-color: #e67e22; border-radius: 50px;">
+        Explore Our Tours ✈️
+    </a>
+
+</div>
+
+<div style="margin-top: 50px; display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap;">
+    <div style="margin: 10px;">
+        <h3>🌍 Global Destinations</h3>
+        <p>Over 50+ countries.</p>
+    </div>
+    <div style="margin: 10px;">
+        <h3>🛡️ Safe Travel</h3>
+        <p>Fully insured packages.</p>
+    </div>
+    <div style="margin: 10px;">
+        <h3>💰 Best Price</h3>
+        <p>Guaranteed affordability.</p>
+    </div>
+</div>
+{% endblock %}
